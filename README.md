@@ -43,7 +43,7 @@ The output image
 - include a `README` in the folder that contains
     - a short explanation of how your submission satisfies each of the required traits
     - your contact information that does not reveal your identity, and
-- submit a `pull request` to this repository.
+- submit a _pull request_ to this repository.
 
 The pull request - there should be only one per candidate - should be made by 23:59:59 on 31 May, 2019 [UTC](https://www.space.com/what-is-utc.html).
 
