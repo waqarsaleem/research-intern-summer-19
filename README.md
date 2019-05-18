@@ -26,6 +26,7 @@ Write a C++ program that inputs a name from command line and outputs a file, `na
 
 The input name
 - must not contain spaces,
+- contains letters of the English alphabet only,
 - may be in mixed case, and
 - can be of arbitrary length up to 24 characters.
 
