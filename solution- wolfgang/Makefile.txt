@@ -1,0 +1,6 @@
+ppm_image_creator: main.o IMAGE_CREATOR.o
+	g++ -o ppm_image_creator main.o IMAGE_CREATOR.o
+main.o: main.cpp IMAGE_CREATOR.h
+	g++ -c main.cpp
+IMAGE_CREATOR.o: IMAGE_CREATOR.cpp IMAGE_CREATOR.h 
+	g++ -c data.cpp
