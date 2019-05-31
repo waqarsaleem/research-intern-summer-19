@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 {
 	char inputstr[40];
 	FILE* fp = fopen("name.ppm","w");
-
+	printf("Input Text:\n");
 	scanf ("%39s",inputstr);
 	Word p(inputstr, WHITE, RED); // White Foreground and Blue Background
 	p.Render(fp); // Write the Text onto the PPM File
