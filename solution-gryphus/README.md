@@ -65,3 +65,8 @@ Generated the Alphabets using a python file in the repository. The Colors can be
 16. Working confidently in a state of uncertainty:
 
 Same Answer as 9
+
+## A Few Notes
+- NetPBM was used for converting plain PPM to PNG format, as I don't have software for opening PPM Files. Image Magick can also be used for conversion.
+- C++11 was used, although this should work in older versions too, but with a few warnings.
+- GNU G++ Compiler was used. MS VC++ may need some changes or other workarounds to compile.
