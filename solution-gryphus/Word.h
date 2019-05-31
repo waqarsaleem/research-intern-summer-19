@@ -61,10 +61,16 @@ public:
 		{
 			int width = length*57 + offset * 2; // Compute the total width
 			fprintf(outputfile, "P3 \n%d 50 \n255\n",width);
+			int filelength = 0; // For maintaining less than 70 characters per line
 		    for (int k = 0; k < 50; k++)
             {
                 for (int i = 0; i < offset; i++) {
                     fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b); // Give a little Space on the left
+                    filelength += 12;
+                    if(filelength > 58) {
+                    	fprintf(outputfile, "\n"); 	// For maintaining less than 70 characters per line
+                    	filelength = 0;				// This Block is used for the same purpose wherever it is in the code
+                    }
                 }
 
                 for (int j = 0; j < strlen(name); j++)
@@ -73,16 +79,36 @@ public:
                 	{
 	                    for (int i = 0; i < 57; i++)
 	                    {
-	                        if (alpha[tolower(name[j])-97][currentrow][i])		{fprintf(outputfile, "%d %d %d ", color.r, color.g, color.b);}
-	                        else if (!alpha[tolower(name[j])-97][currentrow][i])	{fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b);}
+	                        if (alpha[tolower(name[j])-97][currentrow][i])			// Double Check for lowercasing the input text
+                        	{
+                        		fprintf(outputfile, "%d %d %d ", color.r, color.g, color.b); 
+                        		filelength += 12;
+                				if(filelength > 58) {
+                					fprintf(outputfile, "\n");
+                					filelength = 0;
+                				}
+                			}
+	                        else if (!alpha[tolower(name[j])-97][currentrow][i])	// Double Check for lowercasing the input text
+                        	{
+                        		fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b); 
+                        		filelength += 12;
+                				if(filelength > 58) {
+                					fprintf(outputfile, "\n");
+                					filelength = 0;
+                				}
+                			}
 	                    }
                 	}
                 }
 
                 for (int i = 0; i < offset; i++) {
                     fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b); // Give a little Space on the right
+                    filelength += 12;
+                    if(filelength > 58) {
+                    	fprintf(outputfile, "\n");
+                    	filelength = 0;
+                    }
                 }
-
                 currentrow++;
 			}
 			currentrow = 0;
