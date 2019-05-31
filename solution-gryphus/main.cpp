@@ -43,23 +43,21 @@ public:
 		    for (int k = 0; k < 50; k++)
             {
                 for (int i = 0; i < 7 * 2; i++) {
-                    fprintf(outputfile, "%c%c%c", bgColor.r, bgColor.g, bgColor.b);
+                    fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b);
                 }
 
-                for (int j = 0; j < 24; j++)
+                for (int j = 0; j < strlen(name); j++)
                 {
                     for (int i = 0; i < 57; i++)
                     {
                         if (name[j] == '\0') break;
-                        if (alpha[name[j]-97][currentrow][i])		{fprintf(outputfile, "%c%c%c", color.r, color.g, color.b);}
-                        else if (!alpha[name[j]-97][currentrow][i])	{fprintf(outputfile, "%c%c%c", bgColor.r, bgColor.g, bgColor.b);}
+                        if (alpha[name[j]-97][currentrow][i])		{fprintf(outputfile, "%d %d %d ", color.r, color.g, color.b);}
+                        else if (!alpha[name[j]-97][currentrow][i])	{fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b);}
                     }
-                    if (name[j] == '\0') {
-                    break;}
                 }
 
                 for (int i = 0; i < 7 * 2; i++) {
-                    fprintf(outputfile, "%c%c%c", bgColor.r, bgColor.g, bgColor.b);
+                    fprintf(outputfile, "%d %d %d ", bgColor.r, bgColor.g, bgColor.b);
                 }
 
                 currentrow++;
@@ -78,10 +76,13 @@ int main(int argc, char** argv)
 {
 	srand(time(NULL));
 	FILE* fp = fopen("name.ppm","w");
-	int length = strlen(argv[1]);
+	char* toPrint = "gryphus";
+	printf("%d\n", argc);
+	if (argc >= 2) {toPrint = argv[1];}
+	int length = strlen(toPrint);
 	int pjj = length*57 + 28;
-	fprintf(fp, "P6\n %d 50 \n 255\n",pjj);
-	Word p(argv[1], Color(rand(), rand(), 255), Color(255, 0, 0));
+	fprintf(fp, "P3 \n%d 50 \n255\n",pjj);
+	Word p(toPrint, Color(0, 0, 0), Color(255, 0, 0));
 	p.Render(fp);
 	return 0;
 }
