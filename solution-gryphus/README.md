@@ -36,7 +36,7 @@ Technical Documentation was followed and understood for usage of PPM Files.
 
 8. Persistence:
 
-Despite some difficulties due to not been programming in C++ in a long time, I still managed to complete the task.
+Despite some initial difficulties due to not been programming in C++ in a long time and internet connectivity issues, I still managed to complete the task in almost 3 to 3.5 hours.
 
 9. Ability to exercise good judgment in the absence of specific instructions:
 
