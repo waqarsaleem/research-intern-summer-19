@@ -1,6 +1,6 @@
 # Description of Files
 
-- `AlphaMap.cpp` : Contains the English Alphabets for putting on the image
+- `AlphaMap.h` : Contains the English Alphabets for putting on the image
 - `Word.h` : Contains the Word Class that does most of the work, including putting up the whole image and inserting to the file.
 - `main.cpp` : Contains the `main()` function. Use this to compile. Depends on the other `.cpp` and `.h` files to compile.
 - `Readme.md` : The File you are reading right now.
